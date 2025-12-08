@@ -11,6 +11,9 @@ class Medication(models.Model):
     def __str__(self):
         return self.medication_name
     
+    class Meta:
+        verbose_name = 'Medications'
+    
     
 class PatientMedication(models.Model):
     medication_name = models.ForeignKey(Medication, on_delete=models.CASCADE, related_name='medication_for_patient')
@@ -31,5 +34,8 @@ class PatientMedication(models.Model):
             remaining = self.end_date - timezone.now().date()
             return max(remaining.days, 0)
         return None
+    
+    class Meta:
+        verbose_name = 'Patient Medication'
         
     
