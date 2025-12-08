@@ -24,6 +24,7 @@ class PatientMedication(models.Model):
     remaining_days = models.PositiveIntegerField()
     start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField(blank=True, null=True)
+    health_worker = models.ForeignKey('patient_staff_app.PatientAssignment', on_delete=models.CASCADE, related_name='health_worker_assigned')
     
     def __str__(self):
         return f"{self.medication_name} for {self.patient_name}"
