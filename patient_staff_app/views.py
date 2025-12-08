@@ -4,7 +4,7 @@ from .serializer import PatientAssignmentSerializer, PatientSerializer, HealthWo
 from rest_framework import permissions
 from rest_framework import viewsets
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from .permissions import IsHealthWorker
+from .permissions import IsHealthWorker, CanViewPatients
 
 # Create your views here.
 class HealthWorkerViewSet(viewsets.ModelViewSet):
@@ -18,26 +18,8 @@ class PatientViewSet(viewsets.ModelViewSet):
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
     
-    permission_classes = [IsHealthWorker]
+    permission_classes = [CanViewPatients]
     
-    def get_queryset(self):
-        user = self.request.user
-        
-        #checks if is admin/superuser
-        if user.is_superuser or user.groups.filter(name='Admins').exists():
-            return Patient.objects.all()
-        #checks if user is health worker
-        if user.groups.filter(name='HealthWorkers').exists():
-            try:
-                health_worker_profile = user.healthworker
-                assigned_patients = Patient.objects.filter(health_worker_assigned_to__health_worker=health_worker_profile).distinct()
-                return assigned_patients
-            except HealthWorker.DoesNotExist:
-                print("The named Health Worker does not exist")
-                return Patient.objects.none()  
-        else:
-            Patient.objects.none()
-            
             
 class PatientAssignmentViewSet(viewsets.ModelViewSet):
     queryset = PatientAssignment.objects.all()
