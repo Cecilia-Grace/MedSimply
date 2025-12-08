@@ -1,0 +1,45 @@
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Environment variables
+.env
+
+# Django database
+db.sqlite3
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+*.so
+
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+.cache/
+*.cache
+
+# Django secret files
+secret.key
+*.bak
+*.backup
+
+# VSCode settings
+.vscode/
+
+# Text files
+*.text
+*.txt
+
+# OS system files
+.DS_Store
+Thumbs.db
+
