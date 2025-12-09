@@ -17,7 +17,7 @@ class MedicationSchedule(models.Model):
         self.save()
     
     def __str__(self):
-        return f"{self.patient_name} was administered {self.medication_name} by {self.given_by}"
+        return f"{self.patient_given_to} was administered {self.medication_given} by {self.given_by}"
         
     class Meta:
         verbose_name = "Medication Schedule"
