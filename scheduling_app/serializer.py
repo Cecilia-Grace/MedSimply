@@ -8,7 +8,7 @@ class MedicationScheduleSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = MedicationSchedule
-        fields = ('id', 'medication_given', 'medication_given_display', 'patient_given_to', 'patient_given_to_display', 'scheduled_time', 'is_given', 'given_by', 'time_given')
-        read_only_fields = ('medication_given', 'patient_given_to', 'scheduled_time', 'is_given', 'given_by', 'time_given')
+        fields = ('id', 'medication_given', 'medication_given_display', 'patient_given_to', 'patient_given_to_display', 'scheduled_time')
+        read_only_fields = ('medication_given', 'patient_given_to', 'scheduled_time')
         
     
