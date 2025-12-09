@@ -18,9 +18,9 @@ class Medication(models.Model):
 class PatientMedication(models.Model):
     medication_name = models.ForeignKey(Medication, on_delete=models.CASCADE, related_name='medication_for_patient')
     patient_name = models.ForeignKey('patient_staff_app.Patient', on_delete=models.CASCADE, related_name='patient_medication')
-    dosage_unit = models.ForeignKey(Medication, on_delete=models.CASCADE)
-    quantity_per_dose = models.PositiveIntegerField()
-    days_to_take_medicine = models.PositiveIntegerField()
+    dosage_unit = models.CharField(max_length=20, help_text="Unit of the medicine (mg, ml, tablet)")
+    quantity_per_dose = models.PositiveIntegerField(help_text="How many units the patient takes per day")
+    days_to_take_medicine = models.PositiveIntegerField(help_text="Total number of days the patient takes the medicine")
     remaining_days = models.PositiveIntegerField()
     start_date = models.DateField(auto_now_add=True)
     end_date = models.DateField(blank=True, null=True)
