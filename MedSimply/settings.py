@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'patient_staff_app',  #local app
     'medication_inventory_app',  #local app
+    'scheduling_app',  #local app
 ]
 
 MIDDLEWARE = [
