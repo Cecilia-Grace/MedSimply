@@ -14,6 +14,6 @@ class MedicationScheduleSerializer(serializers.ModelSerializer):
 class NotificationDashboardSerializer(serializers.ModelSerializer):
     class Meta:
         model = NotificationDashboard
-        fields = ('id', 'patient_name', 'health_worker', 'phone_number', 'is_remainder_sent', 'remainder_response', 'remainder_message', 'is_given')
-        read_only_fields = ('id', 'patient_name', 'health_worker', 'phone_number', 'is_remainder_sent', 'remainder_response', 'remainder_message', 'is_given')
+        fields = ('id', 'schedule', 'health_worker', 'is_reminder_sent', 'reminder_response', 'reminder_message', 'is_given')
+        read_only_fields = ('id', 'schedule', 'health_worker', 'is_reminder_sent', 'reminder_response', 'reminder_message', 'is_given')
    
