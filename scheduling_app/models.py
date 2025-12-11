@@ -20,7 +20,7 @@ class MedicationSchedule(models.Model):
         verbose_name = "Medication Schedule"
         
 class NotificationDashboard(models.Model):
-    schedule = models.ForeignKey(MedicationSchedule, on_delete=models.CASCADE, related_name='notifications', null=True,  blank=True)
+    schedule = models.ForeignKey(MedicationSchedule, on_delete=models.CASCADE, related_name='notifications')
     health_worker = models.ForeignKey('patient_staff_app.HealthWorker', on_delete=models.SET_NULL,  related_name='scheduled_notifications', null=True,  blank=True, help_text="The caregiver assigned to receive this reminder.")
     
     is_reminder_sent = models.BooleanField(default=False)
