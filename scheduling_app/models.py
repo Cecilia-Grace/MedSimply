@@ -37,6 +37,7 @@ class NotificationDashboard(models.Model):
     )
     def build_reminder_message(self):
         schedule = self.schedule # Access the related MedicationSchedule instance
+        patient = schedule.patient_given_to
         patient_medication = schedule.medication_given # Access the PatientMedication instance
 
         return self.reminder_message.format(

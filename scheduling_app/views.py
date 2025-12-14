@@ -4,7 +4,6 @@ from .serializer import MedicationScheduleSerializer, NotificationDashboardSeria
 from rest_framework import viewsets
 from rest_framework.permissions import IsAdminUser
 from django.utils import timezone
-from .utils import send_sms
 
 
 
