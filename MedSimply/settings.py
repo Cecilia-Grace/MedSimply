@@ -15,10 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#Africa's talking: notification sending
-AT_USERNAME = 'sandbox'
-AT_API_KEY = 'atsk_f3ea648d3b29e45c797ca0e41c94000956ae567ef38f4d1bf0bde8280c61b83d022234ec'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -45,7 +41,13 @@ INSTALLED_APPS = [
     'patient_staff_app',  #local app
     'medication_inventory_app',  #local app
     'scheduling_app',  #local app
+    'django_celery_beat',
 ]
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Africa/Nairobi'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
