@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from medication_inventory_app.models import PatientMedication
 from patient_staff_app.models import Patient
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 class MedicationSchedule(models.Model):
@@ -32,7 +34,7 @@ class NotificationDashboard(models.Model):
             "Patient: {patient_name}\n"
             "Medication: {medication}\n"
             "Scheduled at: {scheduled_time}\n"
-            "Dose: {dose_quantity}"
+            "Dose: {dose_quantity} "
         )
     )
     def build_reminder_message(self):
@@ -49,6 +51,14 @@ class NotificationDashboard(models.Model):
 
     is_given = models.BooleanField(default=False)
         
+        
+    @receiver(post_save, sender=MedicationSchedule)
+    def create_notification(sender, instance, created, **kwargs):
+        if created:
+            NotificationDashboard.objects.create(
+                schedule=instance,
+                health_worker=instance.patient_given_to.health_worker
+            )
         
 
         
