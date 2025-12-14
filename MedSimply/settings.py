@@ -15,16 +15,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# import os
-# from dotenv import load_dotenv
+#Africa's talking: notification sending
+AT_USERNAME = 'sandbox'
+AT_API_KEY = 'atsk_f3ea648d3b29e45c797ca0e41c94000956ae567ef38f4d1bf0bde8280c61b83d022234ec'
 
-# # Load the .env file
-# load_dotenv(os.path.join(BASE_DIR, '.env'))
-
-# # Twilio credentials from .env
-# TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
-# TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
-# TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
