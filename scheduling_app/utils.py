@@ -1,5 +1,4 @@
 import africastalking
-import os
 
 #Africa's talking: notification sending(sandbox)
 AT_USERNAME = 'sandbox'
