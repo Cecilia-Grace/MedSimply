@@ -43,4 +43,5 @@ secret.key
 # OS system files
 .DS_Store
 Thumbs.db
+celerybeat-schedule.db
 
