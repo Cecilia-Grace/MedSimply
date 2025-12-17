@@ -49,6 +49,10 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Africa/Nairobi'
 
+#Africa's talking: notification sending(sandbox)
+AT_USERNAME = 'sandbox'
+AT_API_KEY = 'atsk_f3ea648d3b29e45c797ca0e41c94000956ae567ef38f4d1bf0bde8280c61b83d022234ec'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
