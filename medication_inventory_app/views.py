@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from .serializer import MedicationSerializer, PatientMedicationSerializer 
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
+
 # Create your views here.
 class MedicationViewSet(viewsets.ModelViewSet):
     queryset = Medication.objects.all()
