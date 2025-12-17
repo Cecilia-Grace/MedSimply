@@ -34,7 +34,7 @@ class NotificationDashboard(models.Model):
             "Patient: {patient_name}\n"
             "Medication: {medication}\n"
             "Scheduled at: {scheduled_time}\n"
-            "Dose: {dose_quantity} {dose_unit}"
+            "Dose: {dose_quantity} {dosage_unit}"
         )
     )
     def build_reminder_message(self):
@@ -46,8 +46,8 @@ class NotificationDashboard(models.Model):
             patient_name=schedule.patient_given_to.patient_name, 
             medication=patient_medication.medication_name,
             scheduled_time=schedule.scheduled_time.strftime("%Y-%m-%d %H:%M"),
-            dose_quantity=patient_medication.quantity_per_dose
-            dose_unit=patient_medication.dosage_unit
+            dose_quantity=patient_medication.quantity_per_dose,
+            dosage_unit=patient_medication.dosage_unit
         )
 
     is_given = models.BooleanField(default=False)

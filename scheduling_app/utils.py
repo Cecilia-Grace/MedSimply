@@ -1,8 +1,13 @@
 import africastalking
 import os
 
-AT_USERNAME = os.getenv("AT_USERNAME")
-AT_API_KEY = os.getenv("AT_API_KEY")
+#Africa's talking: notification sending(sandbox)
+AT_USERNAME = 'sandbox'
+AT_API_KEY = 'atsk_f3ea648d3b29e45c797ca0e41c94000956ae567ef38f4d1bf0bde8280c61b83d022234ec'
+
+#Africa's talking: notification sending(live)
+# AT_USERNAME = 'MedSimply'
+# AT_API_KEY = 'atsk_654376d04c657e07c5ba21f4ba42fb1543a5133990bdf3a84579f057a08bb4822107dae0'
 
 # Initialize Africa's Talking SDK (once)
 africastalking.initialize(AT_USERNAME, AT_API_KEY)
@@ -13,6 +18,7 @@ def send_sms(to, message):
         response = sms.send(
             message=message,
             recipients=[to],
+            #from_='24410'
             sender_id='MedSimply Reminder'
         )
         return response
